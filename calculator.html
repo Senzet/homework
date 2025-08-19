@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" name="" id="so_1" placeholder="Nhập số thứ nhất ">
+    <input type="number" name="" id="so_2" placeholder="Nhập số thứ hai ">
+    <h2>KQ</h2>
+    <div id="kq">Kết quả = </div>
+     <button type="button" onclick="Cong()">+</button>
+     <button type="button" onclick="Tru()">-</button>
+     <button type="button" onclick="Nhan()">*</button>
+     <button type="button" onclick="Chia()">/</button>
+     <script>
+        function Cong(){
+                let so_1=document.getElementById("so_1").value;
+                let so_2=document.getElementById("so_2").value;
+                let kq=Number(so_1)+Number(so_2);
+                document.getElementById("kq").innerHTML = kq;
+        }
+        function Tru(){
+            let so_1=document.getElementById("so_1").value;
+            let so_2=document.getElementById("so_2").value;
+            let kq=Number(so_1)-Number(so_2);
+            document.getElementById("kq").innerHTML = kq;
+        }
+        function Nhan(){
+            let so_1=document.getElementById("so_1").value;
+            let so_2=document.getElementById("so_2").value;
+            let kq=Number(so_1)*Number(so_2);
+            document.getElementById("kq").innerHTML = kq;
+        }
+        function Chia(){
+            let so_1=document.getElementById("so_1").value;
+            let so_2=document.getElementById("so_2").value;
+            let kq=Number(so_1)/Number(so_2);
+            document.getElementById("kq").innerHTML = kq;
+        }
+     </script>
+</body>
+</html>
