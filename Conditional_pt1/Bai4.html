@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tìm số lớn nhất</title>
+</head>
+<body>
+    <h2>Tìm số lớn nhất trong ba số</h2>
+    <label for="a">Nhập số thứ nhất:</label>
+    <input type="text" id="a"><br>
+    <label for="b">Nhập số thứ hai:</label>
+    <input type="text" id="b"><br>
+    <label for="c">Nhập số thứ ba:</label>
+    <input type="text" id="c"><br>
+    <button onclick="timSoLonNhat()">Kiểm tra</button>
+    <p id="result"></p>
+
+    <script>
+        function timSoLonNhat() {
+            let a = parseFloat(document.getElementById('a').value);
+            let b = parseFloat(document.getElementById('b').value);
+            let c = parseFloat(document.getElementById('c').value);
+
+            if (isNaN(a) || isNaN(b) || isNaN(c)) {
+                document.getElementById('result').textContent = "Vui lòng nhập đủ cả ba số.";
+                return;
+            }
+
+            if (a > b && a > c) {
+                document.getElementById('result').textContent = `${a} là số lớn nhất.`;
+            } else if (b > a && b > c) {
+                document.getElementById('result').textContent = `${b} là số lớn nhất.`;
+            } else if (c > a && c > b) {
+                document.getElementById('result').textContent = `${c} là số lớn nhất.`;
+            } else {
+                document.getElementById('result').textContent = "Không có số nào lớn nhất hoặc có nhiều số bằng nhau.";
+            }
+        }
+    </script>
+</body>
+</html>

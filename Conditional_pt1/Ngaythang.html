@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính số ngày trong tháng</title>
+</head>
+<body>
+    <h2>Tính số ngày của tháng</h2>
+    <label for="month">Nhập số thứ tự tháng (1-12):</label>
+    <input type="number" id="month" min="1" max="12">
+    <button onclick="tinhSoNgay()">Tính số ngày</button>
+    <p id="result"></p>
+
+    <script>
+        function tinhSoNgay() {
+            var month = parseInt(document.getElementById('month').value);
+            var days;
+            if (month >= 1 && month <= 12) {
+                if (month === 2) {
+                    days = "28 hoặc 29 ngày";
+                } else if ([4, 6, 9, 11].includes(month)) {
+                    days = "30 ngày";
+                } else {
+                    days = "31 ngày";
+                }
+                document.getElementById('result').textContent = "Tháng " + month + " có " + days + ".";
+            } else {
+                document.getElementById('result').textContent = "Vui lòng nhập số tháng từ 1 đến 12.";
+            }
+        }
+    </script>
+</body>
+</html>

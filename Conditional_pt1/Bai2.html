@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiểm tra tuổi học lớp 10</title>
+</head>
+<body>
+    <h2>Kiểm tra tuổi học lớp 10</h2>
+    <label for="age">Nhập tuổi của bạn:</label>
+    <input type="text" id="age" min="0"><br>
+    <button onclick="kiemTraTuoi()">Kiểm tra</button>
+    <p id="result"></p>
+
+    <script>
+        function kiemTraTuoi() {
+            let age = parseInt(document.getElementById('age').value);
+            let result = "";
+            if (isNaN(age) || age < 0) {
+                result = "Tuổi không hợp lệ. Vui lòng nhập lại.";
+            } else if (age < 15) {
+                result = "Không đủ tuổi đi học lớp 10.";
+            } else if (age >= 15 && age < 17) {
+                result = "Đủ tuổi đi học lớp 10.";
+            } else {
+                result = "Quá tuổi.";
+            }
+            document.getElementById('result').textContent = result;
+        }
+    </script>
+</body>
+</html>
