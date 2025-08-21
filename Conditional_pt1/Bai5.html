@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiểm tra danh hiệu học sinh</title>
+</head>
+<body>
+    <h2>Kiểm tra danh hiệu học sinh</h2>
+    <label for="diemKT">Nhập điểm kiểm tra:</label>
+    <input type="karma" id="diemKT"><br>
+    <label for="diemGK">Nhập điểm giữa kỳ:</label>
+    <input type="karma" id="diemGK"><br>
+    <label for="diemCK">Nhập điểm cuối kỳ:</label>
+    <input type="karma" id="diemCK"><br>
+    <button onclick="kiemTraDanhHieu()">Kiểm tra</button>
+    <p id="result"></p>
+
+    <script>
+        function kiemTraDanhHieu() {
+            let diemKT = parseFloat(document.getElementById('diemKT').value);
+            let diemGK = parseFloat(document.getElementById('diemGK').value);
+            let diemCK = parseFloat(document.getElementById('diemCK').value);
+            let diemTB = (diemKT + diemGK + diemCK) / 3;
+
+            if (
+                isNaN(diemKT) || isNaN(diemGK) || isNaN(diemCK) ||
+                diemKT < 0 || diemKT > 10 ||
+                diemGK < 0 || diemGK > 10 ||
+                diemCK < 0 || diemCK > 10
+            ) {
+                document.getElementById('result').textContent = "Điểm không hợp lệ. Vui lòng nhập lại.";
+                return;
+            }
+
+            if (diemTB < 5) {
+                document.getElementById('result').textContent = "Bạn đạt danh hiệu HSTB.";
+            } else if (diemTB >= 5 && diemTB < 8) {
+                document.getElementById('result').textContent = "Bạn đạt danh hiệu HSK.";
+            } else {
+                document.getElementById('result').textContent = "Bạn đạt danh hiệu HSG.";
+            }
+        }
+    </script>
+</body>
+</html>
