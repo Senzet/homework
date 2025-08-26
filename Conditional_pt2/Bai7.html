@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giải phương trình bậc hai</title>
+</head>
+<body>
+    <h2>Giải phương trình ax² + bx + c = 0</h2>
+    <label for="a">Nhập a:</label>
+    <input type="text" id="a"><br>
+    <label for="b">Nhập b:</label>
+    <input type="text" id="b"><br>
+    <label for="c">Nhập c:</label>
+    <input type="text" id="c"><br>
+    <button onclick="giaiPhuongTrinh()">Giải phương trình</button>
+    <p id="result"></p>
+
+    <script>
+        function giaiPhuongTrinh() {
+            let a = parseFloat(document.getElementById('a').value);
+            let b = parseFloat(document.getElementById('b').value);
+            let c = parseFloat(document.getElementById('c').value);
+            let result = "";
+
+            if (isNaN(a) || isNaN(b) || isNaN(c)) {
+                result = "Vui lòng nhập hệ số hợp lệ.";
+            } else if (a === 0) {
+                // Giải phương trình bậc nhất bx + c = 0
+                if (b === 0) {
+                    result = (c === 0) ? "Phương trình có vô số nghiệm." : "Phương trình vô nghiệm.";
+                } else {
+                    let x = -c / b;
+                    result = `Phương trình có nghiệm: x = ${x}.`;
+                }
+            } else {
+                let delta = b * b - 4 * a * c;
+                if (delta < 0) {
+                    result = "Phương trình vô nghiệm.";
+                } else if (delta === 0) {
+                    let x = -b / (2 * a);
+                    result = `Phương trình có nghiệm kép: x = ${x}.`;
+                } else {
+                    let x1 = (-b + Math.sqrt(delta)) / (2 * a);
+                    let x2 = (-b - Math.sqrt(delta)) / (2 * a);
+                    result = `Phương trình có 2 nghiệm phân biệt: x₁ = ${x1}, x₂ = ${x2}.`;
+                }
+            }
+            document.getElementById('result').textContent = result;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giải phương trình bậc nhất</title>
+</head>
+<body>
+    <h2>Giải phương trình ax + b = 0</h2>
+    <label for="a">Nhập hệ số a:</label>
+    <input type="text" id="a"><br>
+    <label for="b">Nhập hệ số b:</label>
+    <input type="text" id="b"><br>
+    <button onclick="giaiPhuongTrinh()">Giải phương trình</button>
+    <p id="result"></p>
+
+    <script>
+        function giaiPhuongTrinh() {
+            let a = parseFloat(document.getElementById('a').value);
+            let b = parseFloat(document.getElementById('b').value);
+
+            if (isNaN(a) || isNaN(b)) {
+                document.getElementById('result').textContent = "Vui lòng nhập hệ số hợp lệ.";
+                return;
+            }
+
+            if (a === 0 && b === 0) {
+                document.getElementById('result').textContent = "Phương trình có vô số nghiệm.";
+            } else if (a === 0) {
+                document.getElementById('result').textContent = "Phương trình vô nghiệm.";
+            } else {
+                let x = -b / a;
+                document.getElementById('result').textContent = `Phương trình có nghiệm: x = ${x}.`;
+            }
+        }
+    </script>
+</body>
+</html>

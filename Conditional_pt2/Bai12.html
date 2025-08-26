@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính tiền gửi tiết kiệm</title>
+</head>
+<body>
+    <h2>Tính tiền gửi tiết kiệm có lãi suất hàng tháng</h2>
+    <label for="P">Nhập số tiền ban đầu:</label>
+    <input type="text" id="P"><br>
+    <label for="r">Nhập lãi suất hàng tháng (%):</label>
+    <input type="text" id="r"><br>
+    <label for="n">Nhập số thời gian gửi (tháng):</label>
+    <input type="text" id="n"><br>
+    <button onclick="tinhTienGui()">Tính tiền</button>
+    <p id="result"></p>
+
+    <script>
+        function tinhTienGui() {
+            let P = parseFloat(document.getElementById('P').value);
+            let r = parseFloat(document.getElementById('r').value);
+            let n = parseInt(document.getElementById('n').value);
+            let result = "";
+
+            if (P < 0 || r < 0 || n < 0 || isNaN(P) || isNaN(r) || isNaN(n)) {
+                result = "Thông tin nhập vào không hợp lệ. Vui lòng nhập lại.";
+            } else {
+                let S = P * Math.pow((1 + r / 100), n);
+                result = "Số tiền sau " + n + " tháng là: " + Math.round(S).toLocaleString('vi-VN') + " đồng.";
+            }
+            document.getElementById('result').textContent = result;
+        }
+    </script>
+</body>
+</html>

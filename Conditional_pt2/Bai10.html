@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính tiền điện</title>
+</head>
+<body>
+    <h2>Tính tiền điện tiêu thụ</h2>
+    <label for="a">Nhập tổng số điện tiêu thụ:</label>
+    <input type="text" id="a"><br>
+    <button onclick="tinhTienDien()">Tính tiền điện</button>
+    <p id="result"></p>
+
+    <script>
+        function tinhTienDien() {
+            let a = parseFloat(document.getElementById('a').value);
+            let total = 0;
+            let result = "";
+
+            if (isNaN(a) || a < 0) {
+                result = "Số điện tiêu thụ không hợp lệ.";
+            } else {
+                if (a < 50) {
+                    total = a * 1984;
+                }
+                else if (a < 100) {
+                    total = 50 * 1984 + (a - 50) * 2050;
+                }
+                else if (a < 150) {
+                    total = 50 * 1984 + 50 * 2050 + (a - 100) * 2380;
+                }
+                else if (a < 200) {
+                    total = 50 * 1984 + 50 * 2050 + 50 * 2380 + (a - 150) * 2500;
+                }
+                else if (a < 300) {
+                    total = 50 * 1984 + 50 * 2050 + 50 * 2380 + 50 * 2500 + (a - 200) * 2700;
+                }
+                else {
+                    total = 50 * 1984 + 50 * 2050 + 50 * 2380 + 50 * 2500 + 100 * 2700 + (a - 300) * 3000;
+                }
+                let vat = total * 0.1;
+                let totalWithVAT = total + vat;
+                result = "Số tiền điện tiêu thụ (chưa VAT): " + total.toLocaleString() + " đồng.<br>"
+                    + "VAT (10%): " + vat.toLocaleString() + " đồng.<br>"
+                    + "Tổng tiền phải trả (đã gồm VAT): " + totalWithVAT.toLocaleString() + " đồng.";
+            }
+            document.getElementById('result').innerHTML = result;
+        }
+    </script>
+</body>
+</html>

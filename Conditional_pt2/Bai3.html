@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính diện tích hình vuông</title>
+</head>
+<body>
+    <h2>Tính diện tích hình vuông</h2>
+    <label for="a">Nhập cạnh hình vuông (cm):</label>
+    <input type="text" id="a"><br>
+    <button onclick="tinhDienTich()">Tính diện tích</button>
+    <p id="result"></p>
+
+    <script>
+        function tinhDienTich() {
+            let a = parseFloat(document.getElementById('a').value);
+            if (isNaN(a) || a <= 0) {
+                document.getElementById('result').textContent = "Vui lòng nhập cạnh hợp lệ.";
+                return;
+            }
+            let dientich = a * a;
+            document.getElementById('result').textContent = "Diện tích hình vuông là: " + dientich.toFixed(2) + " cm².";
+        }
+    </script>
+</body>
+</html>

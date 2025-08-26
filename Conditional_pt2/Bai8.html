@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phân loại độ tuổi</title>
+</head>
+<body>
+    <h2>Phân loại độ tuổi</h2>
+    <label for="number">Nhập vào 1 số nguyên (0-120):</label>
+    <input type="text" id="number"><br>
+    <button onclick="phanLoaiTuoi()">Kiểm tra</button>
+    <p id="result"></p>
+
+    <script>
+        function phanLoaiTuoi() {
+            let number = parseInt(document.getElementById('number').value);
+            let result = "";
+            if (number < 0 || number > 120 || isNaN(number)) {
+                result = "Số không hợp lệ. Vui lòng nhập lại một số nguyên từ 0 đến 120.";
+            }
+            else if (number < 10) {
+                result = "Bạn là trẻ em.";
+            }
+            else if (number >= 10 && number < 18) {
+                result = "Bạn là thanh thiếu niên.";
+            }
+            else if (number >= 18 && number < 30) {
+                result = "Bạn là người trưởng thành.";
+            }
+            else if (number >= 30 && number < 60) {
+                result = "Bạn là người trung niên.";
+            }
+            else if (number >= 60 && number < 120) {
+                result = "Bạn là người cao tuổi.";
+            }
+            document.getElementById('result').textContent = result;
+        }
+    </script>
+</body>
+</html>
