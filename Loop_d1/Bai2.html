@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiểm tra nhiệt độ</title>
+</head>
+<body>
+    <h2>Kiểm tra nhiệt độ</h2>
+    <label for="temp">Nhập nhiệt độ hiện tại:</label>
+    <input type="text" id="temp"><br>
+    <button onclick="kiemTraNhietDo()">Kiểm tra</button>
+    <p id="result"></p>
+    <script>
+        function kiemTraNhietDo() {
+            let n = parseFloat(document.getElementById('temp').value);
+            let result = "";
+            if (isNaN(n)) {
+                result = "Vui lòng nhập nhiệt độ hợp lệ.";
+            } else if (n >= 100) {
+                result = "Vui lòng giảm nhiệt độ";
+            } else if (n <= 20 && n > 0) {
+                result = "Vui lòng tăng nhiệt độ";
+            } else {
+                result = "Nhiệt độ bình thường";
+            }
+            document.getElementById('result').textContent = result;
+        }
+    </script>
+</body>
+</html>

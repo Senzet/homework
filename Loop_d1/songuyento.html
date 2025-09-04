@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>In số nguyên tố</title>
+</head>
+<body>
+    <h2>In số lượng số nguyên tố theo yêu cầu</h2>
+    <label for="numbers">Nhập số lượng số nguyên tố cần in:</label>
+    <input type="text" id="numbers"><br>
+    <button onclick="inSoNguyenTo()">In số nguyên tố</button>
+    <div id="result"></div>
+    <script>
+        function inSoNguyenTo() {
+            let numbers = parseInt(document.getElementById('numbers').value);
+            let count = 0;
+            let n = 2;
+            let result = "";
+            if (isNaN(numbers) || numbers <= 0) {
+                result = "Vui lòng nhập số lượng hợp lệ.";
+            } else {
+                while (count < numbers) {
+                    let isPrime = true;
+                    for (let i = 2; i <= Math.sqrt(n); i++) {
+                        if (n % i === 0) {
+                            isPrime = false;
+                            break;
+                        }
+                    }
+                    if (isPrime) {
+                        result += n + "<br>";
+                        count++;
+                    }
+                    n++;
+                }
+            }
+            document.getElementById('result').innerHTML = result;
+        }
+        </script>
+</body>
+</html>

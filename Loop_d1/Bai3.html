@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>In 20 số Fibonacci đầu tiên</title>
+</head>
+<body>
+    <h2>20 số Fibonacci đầu tiên</h2>
+    <div id="result"></div>
+    <script>
+        let a = 0, b = 1;
+        let result = a + "<br>" + b + "<br>";
+        for (let i = 3; i <= 20; i++) {
+            let c = a + b;
+            result += c + "<br>";
+            a = b;
+            b = c;
+        }
+        document.getElementById('result').innerHTML = result;
+    </script>
+</body>
+</html>
