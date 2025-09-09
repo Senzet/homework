@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 2: Chèn dấu - giữa các số chẵn</title>
+</head>
+<body>
+    <script>
+        let input = prompt("Nhập vào một chuỗi số:");
+        let result = input[0];
+        for (let i = 1; i < input.length; i++) {
+            // Kiểm tra nếu cả số trước và số hiện tại đều là số chẵn
+            if (parseInt(input[i - 1]) % 2 === 0 && parseInt(input[i]) % 2 === 0) {
+                result += "-";
+            }
+            result += input[i];
+        }
+        document.write('Kết quả: "' + result + '"');
+    </script>
+</body>
+</html>
