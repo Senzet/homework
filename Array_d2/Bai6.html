@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thay thế ký tự '-' bằng '_'</title>
+</head>
+<body>
+    <script>
+        // Get the string from the user
+        let input = prompt("Nhập vào một chuỗi (ví dụ: a-b-c-d-e):");
+        
+        // Use replaceAll() to replace all hyphens with underscores
+        let result = input.replaceAll('-', '_');
+        
+        document.write("Chuỗi sau khi thay thế: " + result);
+    </script>
+</body>
+</html>

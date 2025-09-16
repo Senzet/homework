@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 9</title>
+</head>
+<body>
+    <script>
+        // Initialize two integer arrays
+        let a = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19];
+        let b = [2, 4, 6, 8, 10, 12, 14, 16, 18, 20];
+        
+        // Create array c by combining b and a using the spread syntax
+        let c = [...b, ...a];
+        
+        document.write(`Array a: [${a}]<br>`);
+        document.write(`Array b: [${b}]<br>`);
+        document.write(`Array c (combining b and a): [${c}]`);
+    </script>
+</body>
+</html> 
