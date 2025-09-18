@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <body>
+    <script>
+        // Hàm đảo ngược mảng mà không thay đổi mảng gốc
+        function reverseArray(arr) {
+            // Tạo một bản sao của mảng và sau đó đảo ngược bản sao đó
+            // Phương thức slice() tạo bản sao và reverse() đảo ngược nó
+            return arr.slice().reverse();
+        }
+
+        // Gọi và kiểm tra hàm
+        let originalNumbers = [10, 20, 30, 40];
+        let newReversedArray = reverseArray(originalNumbers);
+
+        document.write(`Mảng đã đảo ngược: [${newReversedArray}]<br>`);
+        document.write(`Mảng gốc (không bị thay đổi): [${originalNumbers}]`);
+    </script>
+</body>
+</html>
